@@ -56,7 +56,7 @@ function renderData(travelMode, location) {
         <br>
         <span class='link-map transaction'>
             <a class='localite-information' href="https://www.google.com/maps/dir/?api=1&destination=${encodeURI(hospitalAddress)}&travelmode=${travelMode.toLowerCase()}" target="_blank">
-                <img src="./image/map.svg" alt="Link Google Maps" />
+                <img src="./images/map.svg" alt="Link Google Maps" />
             </a>
         </span>
         `;
