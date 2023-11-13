@@ -1,5 +1,5 @@
 const googleMapsAPIKey = 'AIzaSyB7AAKKeGhIshA8IU0j4-3--zP5sdqLm6Q';
-const hospitalLocation = { lat: -23.5571, lng: -46.666364 };
+const hospitalLocation = { lat: -23.7014416, lng: -46.3912692 };
 const hospitalAddress = "Hospital das Clínicas da Universidade de São Paulo, São Paulo";
 
 function initializeMap(travelMode) {
@@ -20,13 +20,12 @@ function initializeMap(travelMode) {
 
         geocoder.geocode({ 'address': hospitalAddress }, function (results) {
             const location = results[0].geometry.location;
-            const destinations = [{ lat: location.lat(), lng: location.lng() }];
             const origins = [{ lat: position.coords.latitude, lng: position.coords.longitude }]
 
             distanceMatrixService.getDistanceMatrix(
                 {
                     origins,
-                    destinations,
+                    destinations : hospitalLocation,
                     travelMode,
                 },
                 function (location, status) {
