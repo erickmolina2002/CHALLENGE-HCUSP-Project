@@ -8,44 +8,39 @@ function initializeMap(travelMode) {
 
     if (cachedData) {
         const { timestamp, data } = JSON.parse(cachedData);
-        if (Date.now() - timestamp < 100 * 60 * 1000) {
+        if (Date.now() - timestamp < 0 * 60 * 1000) {
             return renderData(travelMode, data);
         }
     }
 
     navigator.geolocation.getCurrentPosition(function (position) {
         const distanceMatrixService = new google.maps.DistanceMatrixService();
-        const geocoder = new google.maps.Geocoder();
+        const destinations = [{ lat: -23.7103619, lng: -46.3976944 }];
+        const origins = [{ lat: position.coords.latitude, lng: position.coords.longitude }]
 
-        geocoder.geocode({ 'address': hospitalAddress }, function (results) {
-            const location = results[0].geometry.location;
-            const destinations = [{ lat: location.lat(), lng: location.lng() }];
-            const origins = [{ lat: position.coords.latitude, lng: position.coords.longitude }]
+        distanceMatrixService.getDistanceMatrix(
+            {
+                origins,
+                destinations,
+                travelMode,
+            },
+            function (location, status) {
+                if (status === 'OK') {
+                    const dataToCache = {
+                        timestamp: Date.now(),
+                        data: location,
+                    };
 
-            distanceMatrixService.getDistanceMatrix(
-                {
-                    origins,
-                    destinations,
-                    travelMode,
-                },
-                function (location, status) {
-                    if (status === 'OK') {
-                        const dataToCache = {
-                            timestamp: Date.now(),
-                            data: location,
-                        };
-
-                        renderData(travelMode, location);
-                        localStorage.setItem(cacheKey, JSON.stringify(dataToCache));
-                    } else {
-                        throw new Error('Erro ao obter a matriz de distância');
-                    }
+                    renderData(travelMode, location);
+                    localStorage.setItem(cacheKey, JSON.stringify(dataToCache));
+                } else {
+                    throw new Error('Erro ao obter a matriz de distância');
                 }
-            );
-
-        });
-    });
-}
+            }
+        );
+    }
+    );
+};
 
 
 function renderData(travelMode, location) {
