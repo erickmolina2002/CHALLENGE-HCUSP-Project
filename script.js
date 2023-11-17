@@ -6,7 +6,7 @@ function initializeMap(travelMode) {
 
     const cachedData = localStorage.getItem(cacheKey);
 
-    if (cachedData) {
+    if (cachedData && false) {
         const { timestamp, data } = JSON.parse(cachedData);
         if (Date.now() - timestamp < 100 * 60 * 1000) {
             return renderData(travelMode, data);
