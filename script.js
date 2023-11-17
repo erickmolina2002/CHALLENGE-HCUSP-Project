@@ -8,7 +8,7 @@ function initializeMap(travelMode) {
 
     if (cachedData) {
         const { timestamp, data } = JSON.parse(cachedData);
-        if (Date.now() - timestamp < 100 * 60 * 1000) {
+        if (Date.now() - timestamp < 0 * 60 * 1000) {
             return renderData(travelMode, data);
         }
     }
