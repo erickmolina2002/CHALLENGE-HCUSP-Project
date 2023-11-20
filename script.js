@@ -1,3 +1,40 @@
+const botaoRadio = document.querySelector('#botao-description-radio');
+const botaoHemo = document.querySelector('#botao-description-hemo');
+const botaoUltra = document.querySelector('#botao-description-ultra');
+
+botaoRadio.addEventListener('click', function() {
+    const description = document.querySelector('#description-radio');
+    description.classList.toggle('display-none');
+});
+botaoHemo.addEventListener('click', function() {
+    const description = document.querySelector('#description-hemo');
+    description.classList.toggle('display-none');
+});
+botaoUltra.addEventListener('click', function() {
+    const description = document.querySelector('#description-ultra');
+    description.classList.toggle('display-none');
+});
+
+function openPopup() {
+    document.getElementById("popup").style.display = "block";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+
+window.onclick = function (event) {
+    const popup = document.getElementById("popup");
+    if (event.target == popup) {
+        popup.style.display = "none";
+    }
+};
+
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    section.scrollIntoView({ behavior: 'smooth' });
+}
+
 const googleMapsAPIKey = 'AIzaSyB7AAKKeGhIshA8IU0j4-3--zP5sdqLm6Q';
 const hospitalAddress = "Hospital das Clínicas da Universidade de São Paulo, São Paulo";
 
@@ -6,7 +43,7 @@ function initializeMap(travelMode) {
 
     const cachedData = localStorage.getItem(cacheKey);
 
-    if (cachedData && false) {
+    if (cachedData) {
         const { timestamp, data } = JSON.parse(cachedData);
         if (Date.now() - timestamp < 100 * 60 * 1000) {
             return renderData(travelMode, data);
@@ -15,7 +52,7 @@ function initializeMap(travelMode) {
 
     navigator.geolocation.getCurrentPosition(function (position) {
         const distanceMatrixService = new google.maps.DistanceMatrixService();
-        const destinations = [{ lat: -23.7103619, lng: -46.3976944 }];
+        const destinations = [{ lat: -23.5577989, lng: -46.6698598 }];
         const origins = [{ lat: position.coords.latitude, lng: position.coords.longitude }]
 
         distanceMatrixService.getDistanceMatrix(

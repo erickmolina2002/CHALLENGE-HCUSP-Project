@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
     <title>HC</title>
 </head>
 <body>
@@ -12,11 +13,11 @@
             <div class="info">
                 <div class="infos">
                     <div class="location">
-                        <img src="./ImagesHcHome/ping.png" alt="">
+                        <a href="./gps.html"> <img src="./images/ping.png" alt=""></a>
                         <span>AV. DR. ENÉAS CARVALHO DE AGUIAR, 647, SÃO PAULO - SP</span>
                     </div>
                     <div class="contanc">
-                        <img src="./ImagesHcHome/phone_ico.png" alt="">
+                        <img src="./images/phone_ico.png" alt="">
                         <span>(11) 2661-8500</span>
                     </div>
                 </div>
@@ -28,10 +29,10 @@
         </div>
         <div class="logos">
             <div class="logo">
-                <a href="https://icr.usp.br"><img src="./ImagesHcHome/logo-hc.png" alt=""></a>
+                <a href="https://icr.usp.br" target="_blank"><img src="./images/logo-hc.png" alt=""></a>
             </div>
             <div class="parceiros">
-                <img src="./ImagesHcHome/parceiros-img.png" alt="">
+                <img src="./images/parceiros-img.png" alt="">
             </div>
         </div>
         <nav>
@@ -42,96 +43,145 @@
                 <li><a href="">ENSINO E PESQUISA</a></li>
                 <li><a href="">O HOSPITAL</a></li>
                 <li class="ultimo"><a href="">CAMPANHAS</a></li>
+                <li><button id="rota" onclick="openPopup()">COMO CHEGAR</button></li>
             </ul>
         </nav>
     </header>
+
+    <div id="popup" class="popup">
+        <div class="popup-content flex-container">
+            <section>
+                <h3  class="frame-information-text">Duração do trajeto</h3>
+                    <div  id="travel-mode" class="flex-container">
+                        <div class="frame-information flex-container">
+                            <img src="./images/car.svg" alt="Carro">
+                            <p id="text-car" class="frame-information-text">
+                                 Carro</p>
+                            <span id="driving" class="location-icon" data-travel-mode="DRIVING" onclick="loadGoogleMaps(this)">
+                                <img src="./images/location.svg" alt="Informação do destino de carro">
+                            </span>
+                        </div>
+                
+                        <div class="frame-information flex-container">
+                            <img src="./images/walk.svg" alt="Pessoa andando">
+                            <p id="text-walk" class="frame-information-text">Andando</p>
+                            <span id="walking" class="location-icon" data-travel-mode="WALKING" onclick="loadGoogleMaps(this)">
+                                <img src="./images/location.svg" alt="Informação do destino andando">
+                            </span>
+                        </div>
+                
+                        <div class="frame-information flex-container">
+                            <img src="./images/bus.svg" alt="Transporte público">
+                            <p id="text-bus" class="frame-information-text">Transporte público</p>
+                            <span id="transit" class="location-icon" data-travel-mode="TRANSIT" onclick="loadGoogleMaps(this)">
+                                <img src="./images/location.svg" alt="Informação do destino de transporte público">
+                            </span>
+                        </div>
+                    </div>
+                </section>
+            <span class="close" onclick="closePopup()">&times;</span>
+        </div>
+    </div>
     <div>
         <ul class="exames">
-            <li>RADIOGRAFIA</li>
-            <li>HEMOGRAFIA</li>
-            <li>ULTRASSOM</li>
+            <li><a onclick="scrollToSection('x-ray-details')">RADIOGRAFIA</a></li>
+            <li><a onclick="scrollToSection('hemo-details')">HEMOGRAFIA</a></li>
+            <li><a onclick="scrollToSection('ultrasound-details')">ULTRASSOM</a></li>
         </ul>
     </div>
+   
     <main id="all-sections">    
-        <section>
+        <section id="x-ray-details">
             <div id="x-ray">
-                <div id="img-xRay">
-                    <img src="./ImagesHcHome/xRay-machine.jpg" alt="xRay">
+                <div id="img-xRay" class="withImage">
+                    <img src="./images/xRay-machine.jpg" alt="xRay">
                 </div>
-                <div id="x-ray-content">
+                <div id="x-ray-content" class="withContent">
                     <h1>RADIOGRAFIA</h1>
                     <p>A radiografia é uma técnica de imagem médica que utiliza raios-X para criar imagens do interior do corpo.</p>
                     <p>Sabe aquele herói que usa uma capa, tem um S no peito e voa salvando as pessoas?</p>
                     <p>Então, esse herói também tem um Raio-X como um de seus poderes!</p>
                     <p>Para fazer esse exame, basta deitar na cama e ficar paradinho até que o submárino faça as verificações necessárias</p>
-                    <p>O tempo lá dentro é bem curto, e tudo o que precisa para fazer o exame dar certo é: <span class="details">detalhes do exame</span></p>
-                    <h2>ESPAÇO PARA VÍDEO</h2>
+                    <p>O tempo lá dentro é bem curto, e tudo o que precisa para fazer o exame dar certo é: <span id="botao-description-radio" class="details">detalhes do exame</span></p>
+                    <section id="description-radio" class="details-exams display-none">
+                        <h1>REQUISITOS E DETALHES</h1>
+                        <div class="needs">
+                            <p>1 - Ver se é necessário algum tipo de jejum para realizar o exame! 🍔❌</p>
+                            <p>ESPAÇO PARA VÍDEO</p>
+                            <p>2 - sei lá</p>
+                            <p>ESPAÇO PARA VÍDEO</p>
+                            <P>3 - mais um teste</P>
+                            <p>ESPAÇO PARA VÍDEO</p> 
+                        </div>
+                    </section>
+                    <!-- <h2>ESPAÇO PARA VÍDEO</h2> -->
                 </div>
             </div>
         </section>
-        <section class="details-exams">
-            <h1>REQUISITOS E DETALHES</h1>
-            <div class="needs">
-                <p>1 - Ver se é necessário algum tipo de jejum para realizar o exame! 🍔❌</p>
-                <p>ESPAÇO PARA VÍDEO</p>
-                <p>2 - sei lá</p>
-                <p>ESPAÇO PARA VÍDEO</p>
-                <P>3 - mais um teste</P>
-                <p>ESPAÇO PARA VÍDEO</p>
-            </div>
-        </section>
-        <section>
+        <section id="hemo-details">
             <div id="hemo">
-                <div id="img-hemo">
-                    <img src="./ImagesHcHome/ExameDeSangue.webp" alt="hemogram">
+                <div id="img-hemo" class="withImage">
+                    <img src="./images/ExameDeSangue.webp" alt="hemogram">
                 </div>
-                <div id="hemo-content">
+                <div id="hemo-content" class="withContent">
                     <h1>HEMOGRAFIA</h1>
                     <p>O hemograma é um exame de sangue que fornece informações sobre os componentes do sangue, como glóbulos vermelhos, glóbulos brancos e plaquetas.</p>
                     <p></p>
                     <p></p>
                     <p></p>
-                    <p>A coleta do sangue não dói nadinha, e tudo o que precisa para fazer o exame dar certo é: <span class="details">detalhes do exame</span></p>
+                    <p>A coleta do sangue não dói nadinha, e tudo o que precisa para fazer o exame dar certo é: <span id="botao-description-hemo" class="details">detalhes do exame</span></p>
+                    <section id="description-hemo" class="details-exams display-none">
+                        <h1>REQUISITOS E DETALHES</h1>
+                        <div class="needs">
+                            <p>1 - Ver se é necessário algum tipo de jejum para realizar o exame! 🍔❌</p>
+                            <p>ESPAÇO PARA VÍDEO</p>
+                            <p>2 - sei lá</p>
+                            <p>ESPAÇO PARA VÍDEO</p>
+                            <P>3 - mais um teste</P>
+                            <p>ESPAÇO PARA VÍDEO</p>
+                        </div>
+                    </section>
                 </div>
             </div>
         </section>
-        <section class="details-exams">
-            <h1>REQUISITOS E DETALHES</h1>
-            <div class="needs">
-                <p>1 - Ver se é necessário algum tipo de jejum para realizar o exame! 🍔❌</p>
-                <p>ESPAÇO PARA VÍDEO</p>
-                <p>2 - sei lá</p>
-                <p>ESPAÇO PARA VÍDEO</p>
-                <P>3 - mais um teste</P>
-                <p>ESPAÇO PARA VÍDEO</p>
-            </div>
-        </section>
-        <section>
+        <section id="ultrasound-details">
             <div id="ultrasound">
-                <div id="img-ultrasound">
-                    <img src="./ImagesHcHome/Ultrasound.jpeg" alt="ultrasound">
+                <div id="img-ultrasound" class="withImage">
+                    <img src="./images/Ultrasound.jpeg" alt="ultrasound">
                 </div>
-                <div id="ultrasound-content">
+                <div id="ultrasound-content" class="withContent">
                     <h1>ULTRASSOM</h1>
                     <p></p>
                     <p></p>
                     <p></p>
                     <p></p>
-                    <p>A coleta do sangue não dói nadinha, e tudo o que precisa para fazer o exame dar certo é: <span class="details">detalhes do exame</span></p>
+                    <p>A coleta do sangue não dói nadinha, e tudo o que precisa para fazer o exame dar certo é: <span id="botao-description-ultra" class="details">detalhes do exame</span></p>
+                    <section id="description-ultra" class="details-exams display-none">
+                        <h1>REQUISITOS E DETALHES</h1>
+                        <div class="needs">
+                            <p>1 - Ver se é necessário algum tipo de jejum para realizar o exame! 🍔❌</p>
+                            <p>ESPAÇO PARA VÍDEO</p>
+                            <p>2 - sei lá</p>
+                            <p>ESPAÇO PARA VÍDEO</p>
+                            <P>3 - mais um teste</P>
+                            <p>ESPAÇO PARA VÍDEO</p>
+                        </div>
+                    </section>
                 </div>
             </div>
         </section>
-        <section class="details-exams">
-            <h1>REQUISITOS E DETALHES</h1>
-            <div class="needs">
-                <p>1 - Ver se é necessário algum tipo de jejum para realizar o exame! 🍔❌</p>
-                <p>ESPAÇO PARA VÍDEO</p>
-                <p>2 - sei lá</p>
-                <p>ESPAÇO PARA VÍDEO</p>
-                <P>3 - mais um teste</P>
-                <p>ESPAÇO PARA VÍDEO</p>
-            </div>
-        </section>
+        <form id="contactForm">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+    
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+    
+            <label for="comment">Comentário:</label>
+            <textarea id="comment" name="comment" rows="1" required></textarea>
+    
+            <button type="submit">Enviar</button>
+        </form>
     </main>
 </body>
 </html>
