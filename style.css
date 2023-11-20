@@ -125,6 +125,10 @@ li button:hover {
     color:white
 }
 
+.exames a{
+    cursor: pointer;
+}
+
 #x-ray {
     display: flex;
     justify-content: center;
@@ -368,12 +372,12 @@ div#travel-mode div{
     display: none;
 }
 
-.withImage img{
+.widthImage img{
     width: 38rem;
     height: 26rem;
 }
 
-.withContent{
+.widthContent{
     width: 45rem;
 }
 
