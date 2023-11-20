@@ -31,8 +31,12 @@ window.onclick = function (event) {
 };
 
 function scrollToSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    section.scrollIntoView({ behavior: 'smooth' });
+    var section = document.getElementById(sectionId);
+    var offset = section.offsetTop - (window.innerHeight - section.clientHeight) / 2;
+    window.scrollTo({
+        top: offset,
+        behavior: 'smooth'
+    });
 }
 
 const googleMapsAPIKey = 'AIzaSyB7AAKKeGhIshA8IU0j4-3--zP5sdqLm6Q';
