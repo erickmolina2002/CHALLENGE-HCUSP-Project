@@ -381,3 +381,84 @@ div#travel-mode div{
     width: 45rem;
 }
 
+#contactForm label {
+    margin-top: 1rem;
+    color: #fff;
+}
+
+#contactForm h3 {
+    margin-top: 1rem;
+    color: #fff;
+}
+
+#name {
+    margin-top: 0.5rem;
+}
+
+#email {
+    margin-top: 0.5rem;
+}
+
+#contactForm textarea {
+    margin-top: 0.5rem;
+    height: 5rem;
+}
+
+#sent {
+    display: flex;
+    justify-content: center;
+    width: 7rem;
+    margin-top: 1rem;
+    margin-left: 8rem;
+    height: 2rem;
+    border-radius: 2rem;
+    background-color: #41B6E6;
+}
+
+#sent:hover {
+    background-color: #00629B;
+    transition: 0.5s;
+}
+
+footer {
+    background-color: #1e1b54;
+    height: 22rem;
+}
+
+#all-content-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+    margin-top: 2rem;
+}
+
+.footer-letters {
+    color: #fff;
+}
+
+#contactForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+#copyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #80b2ad;
+    height: 4rem;
+    color: #fff;
+}
