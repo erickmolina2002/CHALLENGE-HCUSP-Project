@@ -409,6 +409,7 @@ div#travel-mode div{
     justify-content: center;
     width: 7rem;
     margin-top: 1rem;
+    margin-bottom: 1rem;
     margin-left: 8rem;
     height: 2rem;
     border-radius: 2rem;
@@ -446,6 +447,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    margin-bottom: 2rem;
 }
 
 #contacts {
@@ -461,4 +463,12 @@ footer {
     background-color: #80b2ad;
     height: 4rem;
     color: #fff;
+}
+
+#problem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
 }
