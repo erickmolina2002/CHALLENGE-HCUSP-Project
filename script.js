@@ -79,7 +79,7 @@ function initializeMap(travelMode) {
     );
 };
 
-
+//
 function renderData(travelMode, location) {
     const distance = location.rows[0].elements[0].distance.text;
     const duration = location.rows[0].elements[0].duration.text;
