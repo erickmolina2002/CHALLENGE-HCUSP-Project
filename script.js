@@ -39,7 +39,7 @@ function scrollToSection(sectionId) {
     });
 }
 
-const googleMapsAPIKey = 'AIzaSyB7AAKKeGhIshA8IU0j4-3--zP5sdqLm6Q';
+const googleMapsAPIKey = 'AIzaSyBHnTfWv5Qk10iYm3tSqQxvVrlNyYBt--g';
 const hospitalAddress = "Hospital das Clínicas da Universidade de São Paulo, São Paulo";
 
 function initializeMap(travelMode) {
