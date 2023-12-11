@@ -65,8 +65,7 @@ function initializeMap(travelMode) {
                 destinations,
                 travelMode,
             },
-            function (location, status) {
-                if (status === 'OK') {
+            function (location) {
                     const dataToCache = {
                         timestamp: Date.now(),
                         data: location,
@@ -74,9 +73,6 @@ function initializeMap(travelMode) {
 
                     renderData(travelMode, location);
                     localStorage.setItem(cacheKey, JSON.stringify(dataToCache));
-                } else {
-                    throw new Error('Erro ao obter a matriz de distância');
-                }
             }
         );
     }
